@@ -86,5 +86,5 @@ exclude_generator:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: github
-  repository: https://github.com/csjc008/EthanSunBlog.git
-  branch: gh-pages
+  repository: https://github.com/csjc008/csjc008.github.io.git
+  branch: master
