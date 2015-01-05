@@ -24,6 +24,8 @@ You may assume **no duplicate** exists in the array.
 - 移动条件2：如果当前游标的数值比右游标数值大，则游标右移。
 - 默认移动：游标左移。
 
+<!--more-->
+
 我写的算法代码和测试代码如下：
 ```java
 import java.util.Random; 
