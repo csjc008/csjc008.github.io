@@ -101,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort2/" data-id="2hcrhoi7q3p3e7xl" class="article-share-link">Share</a>
+      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort2/" data-id="va2szblxkd86pgvo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,15 +138,6 @@
 <p><strong>Question:</strong><br>Suppose a sorted array is rotated at some pivot unknown to you beforehand.<br>(i.e., <strong>0 1 2 4 5 6 7</strong> might become <strong>4 5 6 7 0 1 2</strong>).<br>Find the minimum element.<br>You may assume <strong>no duplicate</strong> exists in the array.  </p>
 </blockquote>
 <p>就是说一个从小到大排序好的数组循环移位不知多少次，求最小值。数组无重复值！<br>无重复的话就比较简单，用二分查找即可。算法时间复杂度为O(log n)。<br>基本想法就是定义三个游标：左游标，右游标，当前游标。当前游标始终是左右游标中点位置，与左右游标的数值比较。</p>
-<p>有几个要点：</p>
-<ul>
-<li>基本终止条件为：左边的数比当前的数大，那么当前数即是最小值。</li>
-<li>额外终止条件：当左右游标重合，或者左右游标相邻。</li>
-<li>需要考虑边界条件。</li>
-<li>移动条件1：如果当前游标的数值比左游标数值小，则游标左移。</li>
-<li>移动条件2：如果当前游标的数值比右游标数值大，则游标右移。</li>
-<li>默认移动：游标左移。</li>
-</ul>
 
         
           <p class="article-more-link">
@@ -156,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort1/" data-id="zxhghsernyn85qpy" class="article-share-link">Share</a>
+      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort1/" data-id="h310vfgq5yx2ovcu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,6 +172,18 @@
       <ul>
         
           <li>
+            <a href="/2015/01/11/tomcat-gzip-compression/">Tomcat 开启gzip压缩</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/11/tomcat-command-scripts/">Tomcat 启动停止等相关操作脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/05/hexo-add-more/">Hexo 模板添加“更多”或者More的方法</a>
+          </li>
+        
+          <li>
             <a href="/2014/12/27/shift-array-sort2/">循环移位算法题2</a>
           </li>
         
@@ -199,7 +202,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 

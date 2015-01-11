@@ -65,6 +65,128 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tomcat-gzip-compression" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/11/tomcat-gzip-compression/" class="article-date">
+  <time datetime="2015-01-10T16:00:00.000Z" itemprop="datePublished">1月 11 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/11/tomcat-gzip-compression/">Tomcat 开启gzip压缩</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果tomcat返回的相应中含有大量文本数据，我们可以考虑开启tomat的gzip压缩功能以缩短传输时间，获取更好响应。<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/11/tomcat-gzip-compression/#more">More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://csjc008.github.io/2015/01/11/tomcat-gzip-compression/" data-id="5d3qbzotvuijwcgh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tomcat-command-scripts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/11/tomcat-command-scripts/" class="article-date">
+  <time datetime="2015-01-10T16:00:00.000Z" itemprop="datePublished">1月 11 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/11/tomcat-command-scripts/">Tomcat 启动停止等相关操作脚本</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>下面贴一些方便的单机多实例部署tomcat的操作脚本，在实际使用中还是很方便的。<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/11/tomcat-command-scripts/#more">More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://csjc008.github.io/2015/01/11/tomcat-command-scripts/" data-id="w6xgf656soshumtq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo-add-more" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/05/hexo-add-more/" class="article-date">
+  <time datetime="2015-01-04T16:00:00.000Z" itemprop="datePublished">1月 5 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/hexo-add-more/">Hexo 模板添加“更多”或者More的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>很简单，直接添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--more--&gt;</span></div></pre></td></tr></table></figure>
+
+<p>就可以了！下面的内容在摘要中会被隐藏掉</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://csjc008.github.io/2015/01/05/hexo-add-more/" data-id="9po9tonrm4aje6s1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-shift-array-sort2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/27/shift-array-sort2/" class="article-date">
@@ -101,7 +223,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort2/" data-id="2hcrhoi7q3p3e7xl" class="article-share-link">Share</a>
+      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort2/" data-id="va2szblxkd86pgvo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,15 +260,6 @@
 <p><strong>Question:</strong><br>Suppose a sorted array is rotated at some pivot unknown to you beforehand.<br>(i.e., <strong>0 1 2 4 5 6 7</strong> might become <strong>4 5 6 7 0 1 2</strong>).<br>Find the minimum element.<br>You may assume <strong>no duplicate</strong> exists in the array.  </p>
 </blockquote>
 <p>就是说一个从小到大排序好的数组循环移位不知多少次，求最小值。数组无重复值！<br>无重复的话就比较简单，用二分查找即可。算法时间复杂度为O(log n)。<br>基本想法就是定义三个游标：左游标，右游标，当前游标。当前游标始终是左右游标中点位置，与左右游标的数值比较。</p>
-<p>有几个要点：</p>
-<ul>
-<li>基本终止条件为：左边的数比当前的数大，那么当前数即是最小值。</li>
-<li>额外终止条件：当左右游标重合，或者左右游标相邻。</li>
-<li>需要考虑边界条件。</li>
-<li>移动条件1：如果当前游标的数值比左游标数值小，则游标左移。</li>
-<li>移动条件2：如果当前游标的数值比右游标数值大，则游标右移。</li>
-<li>默认移动：游标左移。</li>
-</ul>
 
         
           <p class="article-more-link">
@@ -156,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort1/" data-id="zxhghsernyn85qpy" class="article-share-link">Share</a>
+      <a data-url="http://csjc008.github.io/2014/12/27/shift-array-sort1/" data-id="h310vfgq5yx2ovcu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -181,6 +294,18 @@
       <ul>
         
           <li>
+            <a href="/2015/01/11/tomcat-gzip-compression/">Tomcat 开启gzip压缩</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/11/tomcat-command-scripts/">Tomcat 启动停止等相关操作脚本</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/05/hexo-add-more/">Hexo 模板添加“更多”或者More的方法</a>
+          </li>
+        
+          <li>
             <a href="/2014/12/27/shift-array-sort2/">循环移位算法题2</a>
           </li>
         
@@ -199,7 +324,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
