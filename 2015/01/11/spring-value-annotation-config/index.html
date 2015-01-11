@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015 | Ethan Sun&#39;s</title>
+  <title>Spring实现注解式配置 | Ethan Sun&#39;s</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ethan Sun's">
-<meta property="og:url" content="http://www.ethansun.net/archives/2015/">
+  <meta name="description" content="一般我们对于给Spring的bean进行使用properties文件的配置，使用如下的方式：
+123456789101112131415&lt;?xml version='1.0' encoding='UTF-8' ?&gt;&lt;beans xmlns='http://www.springframework.org/schema/beans'	xmlns:xsi='http://www.w3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring实现注解式配置">
+<meta property="og:url" content="http://www.ethansun.net/2015/01/11/spring-value-annotation-config/">
 <meta property="og:site_name" content="Ethan Sun's">
-<meta property="og:description">
+<meta property="og:description" content="一般我们对于给Spring的bean进行使用properties文件的配置，使用如下的方式：
+123456789101112131415&lt;?xml version='1.0' encoding='UTF-8' ?&gt;&lt;beans xmlns='http://www.springframework.org/schema/beans'	xmlns:xsi='http://www.w3.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ethan Sun's">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Spring实现注解式配置">
+<meta name="twitter:description" content="一般我们对于给Spring的bean进行使用properties文件的配置，使用如下的方式：
+123456789101112131415&lt;?xml version='1.0' encoding='UTF-8' ?&gt;&lt;beans xmlns='http://www.springframework.org/schema/beans'	xmlns:xsi='http://www.w3.">
 
   
     <link rel="alternative" href="/atom.xml" title="Ethan Sun&#39;s" type="application/atom+xml">
@@ -63,9 +66,7 @@
   </div>
 </div>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-spring-value-annotation-config" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-spring-value-annotation-config" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/11/spring-value-annotation-config/" class="article-date">
   <time datetime="2015-01-10T16:00:00.000Z" itemprop="datePublished">1月 11 2015</time>
@@ -78,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/11/spring-value-annotation-config/">Spring实现注解式配置</a>
+    <h1 class="article-title" itemprop="name">
+      Spring实现注解式配置
     </h1>
   
 
@@ -90,12 +91,20 @@
         <p>一般我们对于给Spring的bean进行使用properties文件的配置，使用如下的方式：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attribute">xmlns:p</span>=<span class="value">"http://www.springframework.org/schema/p"</span></div><div class="line">	<span class="attribute">xmlns:context</span>=<span class="value">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd </span></div><div class="line">        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd"&gt;</div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="title">context:property-placeholder</span> <span class="attribute">location</span>= "<span class="attribute">classpath:props</span>/<span class="attribute">myPropFile.properties</span>"  <span class="attribute">ignore-unresolvable</span>= "<span class="attribute">true</span>" /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- sample bean --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>= "<span class="attribute">sampleBean</span>" <span class="attribute">class</span>= "<span class="attribute">your.package.SampleClass</span>" &gt;</span></div><div class="line">	     <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span> =<span class="value">"myProp"</span> <span class="attribute">value</span>= "${<span class="attribute">prop.in.propfile</span>}" /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">bean</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></div></pre></td></tr></table></figure>
 
-<p>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/11/spring-value-annotation-config/#more">More</a>
-          </p>
-        
+<p><a id="more"></a><br>然后在<code>SampleClass</code>中实现<code>myProp</code>的定义和setter。<br>这样在两个地方写来写去觉得略有麻烦，容易产生问题。<br>在Spring 3.0以上可以用注解的方式略掉spring配置文件中相关的配置了。<br>配置中加入</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns:util</span>=<span class="value">"http://www.springframework.org/schema/util"</span>  </span></div><div class="line">    <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd"</span>&gt;  </div><div class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>再加入一个配置bean</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">util:properties</span> <span class="attribute">id</span>=<span class="value">"propsConfig"</span> <span class="attribute">location</span>=<span class="value">"classpath:props/config.properties"</span> /&gt;</span></div></pre></td></tr></table></figure>
+
+<p>这样，在用到的地方可以直接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Value</span>(<span class="string">"#{propsConfig['my.config.string']}"</span>)</div><div class="line"><span class="keyword">private</span> String needToConfig;</div></pre></td></tr></table></figure>
+
+<p>配置文件<code>config.properties</code>中可以写成</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my.config.string=configuredString</div></pre></td></tr></table></figure>
+
+<p>类似的样子。这样省掉了setter，在一处配置与使用，要方便点。</p>
+
       
     </div>
     <footer class="article-footer">
@@ -105,174 +114,20 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-spring-controller-interceptor" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/11/spring-controller-interceptor/" class="article-date">
-  <time datetime="2015-01-10T16:00:00.000Z" itemprop="datePublished">1月 11 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/11/spring-controller-interceptor/">SpringMVC的Controller拦截日志配置</a>
-    </h1>
+    <a href="/2015/01/11/spring-controller-interceptor/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SpringMVC的Controller拦截日志配置</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在项目中一直使用SpringMVC做Java后台服务，返回的基本都是JSON。<br>要求请求参数、返回结果都要打印到log里，方便追踪。<br>如果处理除了问题，也要返回显示错误的JSON。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/11/spring-controller-interceptor/#more">More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ethansun.net/2015/01/11/spring-controller-interceptor/" data-id="lafgqnz2drpu4tuf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
 
-
-  
-    <article id="post-tomcat-gzip-compression" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/11/tomcat-gzip-compression/" class="article-date">
-  <time datetime="2015-01-10T16:00:00.000Z" itemprop="datePublished">1月 11 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/11/tomcat-gzip-compression/">Tomcat 开启gzip压缩</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果tomcat返回的相应中含有大量文本数据，我们可以考虑开启tomat的gzip压缩功能以缩短传输时间，获取更好响应。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/11/tomcat-gzip-compression/#more">More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ethansun.net/2015/01/11/tomcat-gzip-compression/" data-id="5d3qbzotvuijwcgh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tomcat-command-scripts" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/11/tomcat-command-scripts/" class="article-date">
-  <time datetime="2015-01-10T16:00:00.000Z" itemprop="datePublished">1月 11 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/11/tomcat-command-scripts/">Tomcat 启动停止等相关操作脚本</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>下面贴一些方便的单机多实例部署tomcat的操作脚本，在实际使用中还是很方便的。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/11/tomcat-command-scripts/#more">More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ethansun.net/2015/01/11/tomcat-command-scripts/" data-id="w6xgf656soshumtq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hexo-add-more" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/05/hexo-add-more/" class="article-date">
-  <time datetime="2015-01-04T16:00:00.000Z" itemprop="datePublished">1月 5 2015</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/05/hexo-add-more/">Hexo 模板添加“更多”或者More的方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很简单，直接添加</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--more--&gt;</span></div></pre></td></tr></table></figure>
-
-<p>就可以了！下面的内容在摘要中会被隐藏掉</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.ethansun.net/2015/01/05/hexo-add-more/" data-id="9po9tonrm4aje6s1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
 </section>
         
           
