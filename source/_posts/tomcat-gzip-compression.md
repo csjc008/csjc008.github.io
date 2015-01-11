@@ -18,7 +18,7 @@ tags:
 请注意`compress`打头的三段配置。这里加入了XML，csv，json等格式的压缩，指定在1024以上的长度执行gzip压缩返回。
 
 还有一种方法让返回的文本开启gzip压缩。如果你的tomcat前面有nginx的话，可以在nginx上加上如下配置：
-```
+```nginx
 gzip                    on;
 gzip_http_version       1.1;
 gzip_buffers            256 64k;
