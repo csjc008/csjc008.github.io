@@ -115,6 +115,7 @@
 
 <p>MyBatis配置也相应需要更改。</p>
 <p>这样，在各个Service的实现类和方法名上可以使用类似<code>@DataSourceName(dataSource = DataSourceConstant.READ)</code>的配置来设置数据源。</p>
+<p>PS. 调用同一个Service内部的方法，是不会切换数据源的。</p>
 
       
     </div>
