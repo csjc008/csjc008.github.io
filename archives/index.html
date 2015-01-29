@@ -88,7 +88,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>用Spring的项目一般在方法切面上控制事务比较方便：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Transactional</span>(rollbackFor = Exception.class)</div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodName</span>(){</div><div class="line">	......</div><div class="line">}</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Transactional</span>(rollbackFor = Exception.class)</div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodName</span>(){</div><div class="line">    ......</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。<br>把内层相关代码挪到其他Service是一个解决办法，不过略烦。还有一个解决方法，就是手动开启事务支持，把想支持事务的代码块包裹起来。<br>
         

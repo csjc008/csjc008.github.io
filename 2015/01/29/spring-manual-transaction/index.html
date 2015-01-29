@@ -6,23 +6,23 @@
   <title>Spring开启手动事务 | Ethan Sun&#39;s</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="用Spring的项目一般在方法切面上控制事务比较方便：
-1234@Transactional(rollbackFor = Exception.class)public void methodName(){	......}
+1234@Transactional(rollbackFor = Exception.class)public void methodName(){    ......}
 
-Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。把内层相关代码挪到其他Service是一个解决">
+Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。把内层相关代码挪到其他Service是一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring开启手动事务">
 <meta property="og:url" content="http://www.ethansun.net/2015/01/29/spring-manual-transaction/">
 <meta property="og:site_name" content="Ethan Sun's">
 <meta property="og:description" content="用Spring的项目一般在方法切面上控制事务比较方便：
-1234@Transactional(rollbackFor = Exception.class)public void methodName(){	......}
+1234@Transactional(rollbackFor = Exception.class)public void methodName(){    ......}
 
-Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。把内层相关代码挪到其他Service是一个解决">
+Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。把内层相关代码挪到其他Service是一">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring开启手动事务">
 <meta name="twitter:description" content="用Spring的项目一般在方法切面上控制事务比较方便：
-1234@Transactional(rollbackFor = Exception.class)public void methodName(){	......}
+1234@Transactional(rollbackFor = Exception.class)public void methodName(){    ......}
 
-Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。把内层相关代码挪到其他Service是一个解决">
+Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。把内层相关代码挪到其他Service是一">
 
   
     <link rel="alternative" href="/atom.xml" title="Ethan Sun&#39;s" type="application/atom+xml">
@@ -95,7 +95,7 @@ Spring的切面只能切入到本Service方法的第一级调用，内层本Serv
     <div class="article-entry" itemprop="articleBody">
       
         <p>用Spring的项目一般在方法切面上控制事务比较方便：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Transactional</span>(rollbackFor = Exception.class)</div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodName</span>(){</div><div class="line">	......</div><div class="line">}</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Transactional</span>(rollbackFor = Exception.class)</div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">methodName</span>(){</div><div class="line">    ......</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <p>Spring的切面只能切入到本Service方法的第一级调用，内层本Service方法调用是不能切入的，即便加了事务标记也不可以。<br>把内层相关代码挪到其他Service是一个解决办法，不过略烦。还有一个解决方法，就是手动开启事务支持，把想支持事务的代码块包裹起来。<br><a id="more"></a><br>第一步，配置：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionManager"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.jdbc.datasource.DataSourceTransactionManager"</span></span></div><div class="line">	<span class="attribute">p:dataSource-ref</span>=<span class="value">"dataSource"</span> /&gt;</div><div class="line"><span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"transactionTemplate"</span> <span class="attribute">class</span>=<span class="value">"org.springframework.transaction.support.TransactionTemplate"</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"transactionManager"</span> <span class="attribute">ref</span>=<span class="value">"transactionManager"</span> /&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="title">bean</span>&gt;</span></div></pre></td></tr></table></figure>
